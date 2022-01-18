@@ -5,7 +5,6 @@ check_selenium_docker
   * [Highlights](#highlights)
 - [Workflow](#metrics-naming)
 - [System requirements](#system-requirements)
-  * [ITRS OP5 Monitor example](#itrs-op5-monitor-example)
 - [Docker image](#docker-image)
 - [Plugin](#plugin)
 - [Add new test scenarios](#add-new-test-scenarios)
@@ -42,8 +41,6 @@ The following prerequisites must be installed on the server that will execute th
 
 * Python 3 with the docker module
 * docker-ce
-
-## ITRS OP5 Monitor example ##
 
 ```
 # Install docker-ce
