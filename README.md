@@ -227,7 +227,6 @@ export testfolder=/usr/lib/centreon/plugins/selenium/mysite.com
 export image=opsdis/selenium-chrome-node-with-side-runner
 docker run -it --rm -p 4444:4444 -p 7900:7900 --shm-size="2g" -v $testfolder/sides:/sides -v $testfolder/out:/selenium-side-runner/out $image /opt/bin/entry_point.sh
 ```
-This will also allow you to connect to the selenium web interface (on port 4444) and VNC (on port 7900, pass: secret) to look at the executing scenario in the browser.
 
 # License 
 check_selenium_docker is licensed under GPL version 3.
