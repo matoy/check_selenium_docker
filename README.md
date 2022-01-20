@@ -215,7 +215,7 @@ WARNING: Passed 2 of 2 tests with 0 critical and 1 warning alerts. Warning: Firs
 ```
 
 # Debug 
-You can execute with the --debug true parameter ; this will result the docker container to be executing with exposing its 4444 & 7900 ports:
+You can execute the script with the --debug true parameter ; this will result the docker container to be executing with exposing its 4444 & 7900 ports:
 ```
 /usr/lib/centreon/plugins/check_selenium_docker.py /usr/lib/centreon/plugins/selenium/my-site.com/ --browser chrome --timeout 60 -vv --debug true
 ```
