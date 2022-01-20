@@ -221,7 +221,7 @@ You can execute the script with the --debug true parameter ; this will result th
 ```
 Then connect to the 7900 port of your host running the script with a browser, you'll get the VNC interface (password is secret by default) and see what is being made in the browser.
 
-You can go further by getting output inside the container itself bypassing the python script:
+You can go further by getting output inside the container itself:
 ```
 export testfolder=/usr/lib/centreon/plugins/selenium/mysite.com
 export image=opsdis/selenium-chrome-node-with-side-runner
