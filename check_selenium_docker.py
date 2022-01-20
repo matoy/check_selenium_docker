@@ -33,6 +33,8 @@ sys.excepthook = except_hook
 parser = argparse.ArgumentParser()
 parser.add_argument('-v', '--verbose', action='count', default=0,
                     help="show failed test names and failure messages (-vv)")
+parser.add_argument("--debug", type=str, default="false",
+                    help="expose 4444 and 7900 ports of the container to the localhost to share screen/browser view, default 'false', other possible options: 'true'")
 parser.add_argument("--timeout", type=int, default=300,
                     help="results waiting timeout in sec, default 300")
 parser.add_argument("--browser", type=str, default="chrome",
@@ -54,6 +56,7 @@ gridfqdn = args.gridfqdn
 gridport = args.gridport
 timeout = abs(args.timeout)
 verbose = args.verbose
+debug = args.debug
 os.chdir(path)
 if browser not in ['chrome', 'firefox', 'edge']:
     print("Error: not allowed browser!")
@@ -89,6 +92,9 @@ for sig in [signal.SIGTERM, signal.SIGINT]:
 
 # Start selenium docker container
 client = docker.from_env()
+ports = {}
+if debug == "true":
+    ports = {'4444/tcp': 4444, '7900/tcp': 7900}
 container = client.containers.run(
     'opsdis/selenium-' + browser + '-node-with-side-runner',
     auto_remove = True,
@@ -98,6 +104,7 @@ container = client.containers.run(
         path + '/sides': { 'bind': '/sides', 'mode': 'rw' },
     },
     environment={'GRID_FQDN':gridfqdn, 'GRID_PORT':gridport, 'GRID_PROTO':gridproto},
+    ports = ports,
     detach = True
 )
 
