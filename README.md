@@ -112,7 +112,7 @@ Add a new check_command to Monitor:
 
 ```
 check_selenium_docker
-$USER1$/custom/check_selenium_docker.py $ARG1$
+$CENTREONPLUGINS$/check_selenium_docker.py $_SERVICECHECKFOLDER$ --browser $_SERVICEBROWSER$ --timeout $_SERVICETIMEOUT$ --gridproto $_SERVICEGRIDPROTO$ --gridfqdn $_SERVICEGRIDFQDN$ --gridport $_SERVICEGRIDPORT$ -vv $_SERVICEOPTIONS$ $_HOSTOPTIONS$
 ```
 
 
